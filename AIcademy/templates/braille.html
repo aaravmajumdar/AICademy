@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %} Braille To Text{% endblock title %}
+{% block blogactive %} active {% endblock blogactive %}
+
+{% block body %}
+<form action='/braille' method='get'>
+  <div class='container mx-15 my-5'>
+    <textarea name="BrailleResponse" style="margin: 0px; width: 1200px; height: 500px;">Enter your text here </textarea><br>
+    <button type='submit'>Submit</button>
+  </div>
+</form>
+
+{% endblock %}

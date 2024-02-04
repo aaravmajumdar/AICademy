@@ -1,0 +1,19 @@
+{%extends 'base.html' %}
+{% block title %} MAX{% endblock title %}
+{% block blogactive %} active {% endblock blogactive %} 
+
+
+{% block body %}
+<form action='/chat' method='get'>
+<div class = 'container mx-15 my-5' >
+    {% comment %} <textarea name='text' style='margin: 0px; width: 1200px; height: 500px;'name="Summarize" placeholder="Here is your summarized text : {{ analyzed_text }}"></textarea><br> {% endcomment %}
+    <h2>Upload Image</h2>
+    <form action="/save_image/" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Upload</button>
+    </form> 
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+{%endblock%}

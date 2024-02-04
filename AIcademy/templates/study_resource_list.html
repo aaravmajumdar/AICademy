@@ -1,0 +1,15 @@
+{%extends 'base.html' %}
+{% block title %} Summarizer{% endblock title %}
+{% block blogactive %} active {% endblock blogactive %} 
+
+{% block body %}
+<form action='/summarize' method='get'>
+<div class = 'container mx-15 my-5' >
+    {% for resource in resources %}
+    <li>
+        {{ resource.subjectid }} - {{ resource.subject }} - {{ resource.chapter }} - {{ resource.standard }} - {{ resource.booktitle }}
+        <a href="{{ resource.file.url }}" download>Download</a>
+    </li>
+{% endfor %}   
+
+{%endblock%}

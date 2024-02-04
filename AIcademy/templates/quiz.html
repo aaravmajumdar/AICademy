@@ -1,0 +1,134 @@
+{%extends 'base.html' %}
+{% block title %} Home Page {% endblock title %}
+{% block blogactive %} active {% endblock blogactive %} 
+
+
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+<body>
+<div class="container">
+    <h1>Quiz</h1>
+
+    <form id="quizForm">
+        <!-- Question 1 -->
+        <div>
+            <p>1. What is the capital of France?</p>
+            <label>
+                <input type="radio" name="q1" value="a" correct="true"> a) Paris
+            </label>
+            <label>
+                <input type="radio" name="q1" value="b"> b) Berlin
+            </label>
+            <label>
+                <input type="radio" name="q1" value="c"> c) Madrid
+            </label>
+        </div>
+        <br>
+        <!-- Question 2 -->
+        <div>
+            <p>2. Which planet is known as the Red Planet?</p>
+            <label>
+                <input type="radio" name="q2" value="a"> a) Venus
+            </label>
+            <label>
+                <input type="radio" name="q2" value="b" correct="true"> b) Mars
+            </label>
+            <label>
+                <input type="radio" name="q2" value="c"> c) Jupiter
+            </label>
+        </div>
+        <br>
+        <!-- Question 3 -->
+        <div>
+            <p>3. What is the capital of Japan?</p>
+            <label>
+                <input type="radio" name="q3" value="a"> a) Seoul
+            </label>
+            <label>
+                <input type="radio" name="q3" value="b"> b) Beijing
+            </label>
+            <label>
+                <input type="radio" name="q3" value="c" correct="true"> c) Tokyo
+            </label>
+        </div>
+        <br>
+        <!-- Question 4 -->
+<div>
+    <p>4. What is the largest mammal on Earth?</p>
+    <label>
+        <input type="radio" name="q4" value="a"> a) Elephant
+    </label>
+    <label>
+        <input type="radio" name="q4" value="b"> b) Blue Whale
+    </label>
+    <label>
+        <input type="radio" name="q4" value="c" correct="true"> c) Giraffe
+    </label>
+</div>
+<br>
+
+<!-- Question 5 -->
+<div>
+    <p>5. Who wrote "Romeo and Juliet"?</p>
+    <label>
+        <input type="radio" name="q5" value="a"> a) Charles Dickens
+    </label>
+    <label>
+        <input type="radio" name="q5" value="b" correct="true"> b) William Shakespeare
+    </label>
+    <label>
+        <input type="radio" name="q5" value="c"> c) Jane Austen
+    </label>
+</div>
+<br>
+
+<!-- Question 6 -->
+<div>
+    <p>6. What is the currency of Japan?</p>
+    <label>
+        <input type="radio" name="q6" value="a"> a) Yen
+    </label>
+    <label>
+        <input type="radio" name="q6" value="b"> b) Won
+    </label>
+    <label>
+        <input type="radio" name="q6" value="c" correct="true"> c) Ringgit
+    </label>
+</div>
+<br>
+
+<!-- Add more questions following the same structure -->
+
+        <!-- Add more questions following the same structure -->
+
+        <button  type="button" onclick="submitQuiz()">Submit</button>
+    </form>
+</div>
+    <script>
+        function submitQuiz() {
+            const totalQuestions = 3; // Update with the total number of questions
+            let score = 0;
+
+            for (let i = 1; i <= totalQuestions; i++) {
+                const selectedOption = document.querySelector(`input[name=q${i}]:checked`);
+                if (selectedOption && selectedOption.getAttribute('correct') === 'true') {
+                    score++;
+                }
+            }
+
+            const feedback = `You scored ${score} out of ${totalQuestions}.`;
+
+            alert(feedback);
+        }
+    </script>
+
+</body>
+</html>
+
+{%endblock%}
